@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "Bash(find \"/Users/aneeshthakral/Downloads/Projects.md/StoryGrid & Co.\" -type f)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(python3:*)",
+      "Bash(npx create-next-app@latest sg-website --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)",
+      "Bash(npm install:*)",
+      "Bash(npm list:*)",
+      "Bash(cat:*)",
+      "Bash(npm run:*)",
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); const keys = Object.keys\\(l\\); console.log\\(keys.filter\\(k => /linked|twitter|instagram|x$/i.test\\(k\\)\\).join\\(''\\\\n''\\)\\)\")",
+      "Bash(node scripts/generate-pdf.mjs)",
+      "Bash(open:*)",
+      "WebSearch"
+    ]
+  }
+}
