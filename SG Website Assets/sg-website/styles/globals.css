@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────
+   TAILWIND v4 DESIGN TOKENS — @theme block
+   All --color-* vars auto-generate bg-*, text-*, border-* utilities
+   ───────────────────────────────────────── */
+@theme {
+  /* Surface colors */
+  --color-deep: #080507;
+  --color-card: #141012;
+  --color-elevated: #1E181C;
+  --color-section-break: #F0E8E2;
+  --color-light-card: #E8DDD4;
+
+  /* Blaze (primary accent) */
+  --color-blaze: #E8451A;
+  --color-blaze-muted: #C43D1A;
+  --color-blaze-glow: #FF5C2B;
+
+  /* Atmospheric — decorative only, NEVER as text color */
+  --color-infrared: #D42020;
+  --color-warm-glow: #FF8040;
+
+  /* AI Teal */
+  --color-teal: #2DD881;
+  --color-teal-muted: #1A6B45;
+
+  /* Gold */
+  --color-gold: #D4912A;
+
+  /* Cool Smoke — decorative only, NEVER as text color */
+  --color-smoke: #4A6080;
+  --color-smoke-muted: #2A3848;
+
+  /* Text on dark backgrounds */
+  --color-heading: #F2EAE4;
+  --color-body: #C4A08A;
+  --color-caption: #887060;
+
+  /* Text on light/cream backgrounds */
+  --color-heading-light: #181012;
+  --color-body-light: #3A2820;
+  --color-caption-light: #685040;
+
+  /* Font families — populated via next/font CSS variable injection */
+  --font-family-display: var(--font-bebas-neue), 'Arial Narrow', sans-serif;
+  --font-family-body: var(--font-barlow), system-ui, sans-serif;
+  --font-family-condensed: var(--font-barlow-condensed), 'Arial Narrow', sans-serif;
+}
+
+/* ─────────────────────────────────────────
+   GRADIENT SYSTEM — 5 named custom properties
+   All section backgrounds reference these by name
+   ───────────────────────────────────────── */
+:root {
+  /* Depth gradient — used on hero, all full-bleed dark sections */
+  --gradient-depth: linear-gradient(to bottom, #080507, #141012);
+
+  /* Blaze fade — warm energy halo behind key headlines and CTA zones */
+  --gradient-blaze-fade: radial-gradient(circle 500px, rgba(232, 69, 26, 0.06), transparent);
+
+  /* Infrared wash — deep crimson atmospheric undertone */
+  --gradient-infrared-wash: radial-gradient(ellipse at 30% 60%, rgba(212, 32, 32, 0.04), #080507);
+
+  /* Cool atmosphere — counterbalance to prevent uniformly hot feel */
+  --gradient-cool-atmosphere: linear-gradient(to left, rgba(74, 96, 128, 0.05), transparent);
+
+  /* Dual temperature — HERO AND CTA BANNER ONLY, signature fire-and-air atmosphere */
+  --gradient-dual-temperature:
+    radial-gradient(ellipse at 20% 90%, rgba(255, 128, 64, 0.05), transparent),
+    radial-gradient(ellipse at 80% 10%, rgba(74, 96, 128, 0.04), transparent),
+    #080507;
+
+  /* Scroll progress — updated by layout scroll listener */
+  --scroll-progress: 0;
+
+  /* shadcn-compatible aliases — required by ProjectShowcase component */
+  --background: #080507;
+  --foreground: #F2EAE4;
+  --muted-foreground: #887060;
+  --secondary: #141012;
+  --border: #1E181C;
+}
+
+/* ─────────────────────────────────────────
+   BASE RESETS & GLOBAL STYLES
+   ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #080507;
+  color: #C4A08A;
+  font-family: var(--font-family-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────
+   GLOBAL GRAIN — unified cinematic texture
+   Fixed so it spans all sections continuously.
+   Replaces section-level grain overlays.
+   ───────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(232, 69, 26, 0.2);
+  color: #F2EAE4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080507;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E181C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3A2820;
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY UTILITIES
+   ───────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-family-display);
+}
+
+.font-body {
+  font-family: var(--font-family-body);
+}
+
+.font-condensed {
+  font-family: var(--font-family-condensed);
+}
+
+/* ─────────────────────────────────────────
+   LINK UNDERLINE ANIMATION
+   ───────────────────────────────────────── */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 250ms ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE HELPERS — mobile/desktop show/hide
+   Used by Navigation for hamburger vs desktop links
+   ───────────────────────────────────────── */
+.hidden-mobile {
+  display: flex;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: flex !important;
+  }
+}
+
+/* ─────────────────────────────────────────
+   SECTION CLASSIFICATION HELPERS
+   ───────────────────────────────────────── */
+.section-dark {
+  position: relative;
+  z-index: auto;
+}
+
+.section-cream {
+  position: relative;
+  z-index: auto;
+}
+
+/* ─────────────────────────────────────────
+   SECTION TRANSITION BLEEDS
+   80px gradient overlays on dark↔cream boundaries.
+   ::before = incoming dark cap (top of cream section bleeds into dark above)
+   ::after  = outgoing dark cap (bottom of cream section bleeds into dark below)
+   ───────────────────────────────────────── */
+
+/* Dark → Cream: HowWeWork top bleed */
+#how-we-work::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, #080507, rgba(240, 232, 226, 0));
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Cream → Dark: HowWeWork bottom bleed into Results */
+#how-we-work::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(240, 232, 226, 0), #080507);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Dark → Cream: Founder (#about) top bleed */
+#about::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, #080507, rgba(232, 221, 212, 0));
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Cream → Dark: Founder bottom bleed into CTABanner */
+#about::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(232, 221, 212, 0), #080507);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ─────────────────────────────────────────
+   FORM INPUT STYLES — used by contact page
+   ───────────────────────────────────────── */
+.sg-input {
+  width: 100%;
+  background: #141012;
+  border: 1px solid #1E181C;
+  color: #F2EAE4;
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  padding: 12px 16px;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 200ms ease;
+  appearance: none;
+}
+
+.sg-input::placeholder {
+  color: #887060;
+}
+
+.sg-input:focus {
+  border-color: #E8451A;
+}
+
+.sg-input.error {
+  border-color: #D42020;
+}
+
+.sg-label {
+  display: block;
+  font-family: var(--font-family-condensed);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #887060;
+  margin-bottom: 8px;
+}
+
+.sg-field-error {
+  font-family: var(--font-family-body);
+  font-size: 13px;
+  color: #D42020;
+  margin-top: 6px;
+}
