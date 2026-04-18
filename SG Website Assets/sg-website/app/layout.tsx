@@ -40,6 +40,7 @@ const barlowCondensed = Barlow_Condensed({
 // ─────────────────────────────────────────
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://storygrid.co'),
   title: 'StoryGrid & Co. | AI-First Narrative Strategy Agency',
   description:
     'StoryGrid & Co. builds the narrative infrastructure that makes growth-stage companies impossible to ignore. AI-augmented storytelling, content systems, and founder brand development.',
