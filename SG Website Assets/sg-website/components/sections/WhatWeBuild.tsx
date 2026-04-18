@@ -135,7 +135,7 @@ export default function WhatWeBuild() {
         }}
       >
         <ScrollReveal>
-          <SectionLabel color="#2DD881">Services</SectionLabel>
+          <SectionLabel color="#CCFF00">Services</SectionLabel>
           <h2
             style={{
               fontFamily: 'var(--font-family-display)',

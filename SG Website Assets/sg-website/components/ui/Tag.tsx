@@ -14,9 +14,9 @@ const variantStyles: Record<TagProps['variant'], React.CSSProperties> = {
     background: 'transparent',
   },
   ai: {
-    color: '#2DD881',
-    background: '#0A1210',
-    border: '1px solid #1A3020',
+    color: '#CCFF00',
+    background: 'rgba(204, 255, 0, 0.1)',
+    border: '1px solid rgba(204, 255, 0, 0.3)',
   },
   founder: {
     color: '#D4912A',
@@ -47,6 +47,13 @@ export default function Tag({ variant, children, className = '' }: TagProps) {
         lineHeight: '1.4',
       }}
     >
+      {variant === 'ai' && (
+        <span
+          className="inline-block w-1.5 h-1.5 rounded-full bg-neon-lime mr-1.5"
+          aria-hidden="true"
+          style={{ verticalAlign: 'middle' }}
+        />
+      )}
       {children}
     </span>
   )

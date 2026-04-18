@@ -21,9 +21,9 @@
   --color-infrared: #D42020;
   --color-warm-glow: #FF8040;
 
-  /* AI Teal */
-  --color-teal: #2DD881;
-  --color-teal-muted: #1A6B45;
+  /* Neon Lime */
+  --color-neon-lime: #CCFF00;
+  --color-neon-lime-soft: rgba(204, 255, 0, 0.15);
 
   /* Gold */
   --color-gold: #D4912A;
