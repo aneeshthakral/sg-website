@@ -24,7 +24,7 @@ const plans: PricingPlan[] = [
       'Monthly strategy call (60 min)',
       'Dedicated Slack channel, 48-hour response',
     ],
-    ctaText: 'Get Started',
+    ctaText: 'Email Aneesh',
     ctaHref: 'mailto:hello@storygrid.co',
   },
   {
@@ -248,7 +248,7 @@ export default function Pricing() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Button variant="primary" href="mailto:hello@storygrid.co">
-                Let&apos;s Talk
+                Email Aneesh
               </Button>
             </div>
           </div>

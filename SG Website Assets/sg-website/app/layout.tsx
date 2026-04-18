@@ -56,6 +56,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Aneesh Thakral' }],
   creator: 'StoryGrid & Co.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -64,7 +73,7 @@ export const metadata: Metadata = {
     title: 'StoryGrid & Co. | AI-First Narrative Strategy Agency',
     description:
       'StoryGrid & Co. builds the narrative infrastructure that makes growth-stage companies impossible to ignore. AI-augmented storytelling, content systems, and founder brand development.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'StoryGrid & Co.' }],
+    images: [{ url: '/images/logo/logo.png', width: 1200, height: 630, alt: 'StoryGrid & Co.' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -93,6 +102,7 @@ export default function RootLayout({
       lang="en"
       className={`${bebasNeue.variable} ${barlow.variable} ${barlowCondensed.variable}`}
     >
+      <head />
       <body>
         {/* Lenis smooth scroll — client component, wraps entire page tree */}
         <LenisProvider>

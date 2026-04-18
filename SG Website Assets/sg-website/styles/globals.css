@@ -74,7 +74,6 @@
   /* Scroll progress — updated by layout scroll listener */
   --scroll-progress: 0;
 
-  /* shadcn-compatible aliases — required by ProjectShowcase component */
   --background: #080507;
   --foreground: #F2EAE4;
   --muted-foreground: #887060;
@@ -95,6 +94,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

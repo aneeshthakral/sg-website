@@ -2,22 +2,28 @@
 // Background: dark (#080507) | Gradient: infrared-wash
 
 import SectionLabel from '@/components/ui/SectionLabel'
-import StatCounter from '@/components/ui/StatCounter'
+import AnimatedCounter from '@/components/ui/AnimatedCounter'
 import Tag from '@/components/ui/Tag'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 
 const stats = [
   {
-    value: '$5M+',
+    value: 5,
+    prefix: '$',
+    suffix: 'M+',
     label: 'in closed enterprise deals attributed to narrative-led positioning',
   },
   {
-    value: '8+',
+    value: 8,
+    prefix: '',
+    suffix: '+',
     label: 'years building B2B narratives in competitive markets',
   },
   {
-    value: '3x',
+    value: 3,
+    prefix: '',
+    suffix: 'x',
     label: 'average content engagement lift for narrative-led brands',
   },
 ]
@@ -80,8 +86,32 @@ export default function Results() {
           }}
         >
           {stats.map((stat, i) => (
-            <ScrollReveal key={stat.value} delay={i * 0.1}>
-              <StatCounter value={stat.value} label={stat.label} />
+            <ScrollReveal key={stat.label} delay={i * 0.1}>
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-family-display)',
+                    fontSize: 'clamp(44px, 6.8vw, 68px)',
+                    color: '#F2EAE4',
+                    lineHeight: 1,
+                    marginBottom: '12px',
+                  }}
+                >
+                  <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                </div>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-family-body)',
+                    fontSize: '15px',
+                    color: '#C4A08A',
+                    lineHeight: 1.6,
+                    maxWidth: '180px',
+                    margin: '0 auto',
+                  }}
+                >
+                  {stat.label}
+                </p>
+              </div>
             </ScrollReveal>
           ))}
         </div>
@@ -122,49 +152,59 @@ export default function Results() {
           </div>
         </ScrollReveal>
 
-        {/* Testimonial placeholder cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
-          }}
-        >
-          {[
-            {
-              id: 'TESTIMONIAL_1',
-              text: 'Real results from real campaigns. Testimonials from enterprise clients will appear here before launch.',
-            },
-            {
-              id: 'TESTIMONIAL_2',
-              text: 'The proof is in the pipeline. Client case studies and attribution data will be featured here.',
-            },
-          ].map((testimonial, i) => (
-            <ScrollReveal key={testimonial.id} delay={i * 0.1}>
-              <div
-                style={{
-                  backgroundColor: '#141012',
-                  border: '1px solid #1E181C',
-                  padding: '32px',
-                }}
-              >
-                <SectionLabel color="#887060">Client Story Coming Soon</SectionLabel>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-family-body)',
-                    fontSize: '16px',
-                    color: '#887060',
-                    lineHeight: 1.7,
-                    marginTop: '12px',
-                    fontStyle: 'italic',
-                  }}
-                >
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+        {/* Case studies card */}
+        <ScrollReveal delay={0.1}>
+          <div
+            style={{
+              backgroundColor: '#080507',
+              border: '1px solid rgba(232, 69, 26, 0.2)',
+              borderRadius: '16px',
+              padding: '40px',
+              maxWidth: '768px',
+              margin: '0 auto',
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: 'var(--font-family-display)',
+                fontSize: 'clamp(24px, 3.5vw, 36px)',
+                color: '#F2EAE4',
+                lineHeight: 1.1,
+                marginBottom: '16px',
+              }}
+            >
+              Case Studies Publishing Monthly
+            </h3>
+            <p
+              style={{
+                fontFamily: 'var(--font-family-body)',
+                fontSize: '16px',
+                color: '#C4A08A',
+                lineHeight: 1.7,
+                marginBottom: '16px',
+              }}
+            >
+              StoryGrid &amp; Co. launched in 2026. Rather than filling this space
+              with fabricated testimonials, we&apos;re publishing real client case studies
+              as engagements complete. First case study drops in Month 2.
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-family-body)',
+                fontSize: '15px',
+                color: '#887060',
+                lineHeight: 1.6,
+                marginBottom: '24px',
+              }}
+            >
+              Want to see the methodology in action before then? Book a
+              30-minute Narrative Audit.
+            </p>
+            <Button variant="primary" href="https://topmate.io/aneeshthakral/">
+              Book a Call
+            </Button>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

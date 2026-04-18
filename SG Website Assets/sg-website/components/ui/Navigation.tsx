@@ -16,11 +16,10 @@ import { scrollToSection } from '@/lib/scrollUtils'
 const BOOKING_URL = 'https://topmate.io/aneeshthakral/'
 
 const navLinks = [
-  { label: 'Work', href: '/approach' },
-  { label: 'Story', href: '/story' },
+  { label: 'Services', href: '/#services', isAnchor: true, anchorId: 'services' },
+  { label: 'How We Work', href: '/#how-we-work', isAnchor: true, anchorId: 'how-we-work' },
   { label: 'Pricing', href: '/#pricing', isAnchor: true, anchorId: 'pricing' },
-  { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: '/#about', isAnchor: true, anchorId: 'about' },
 ]
 
 export default function Navigation() {
@@ -102,12 +101,13 @@ export default function Navigation() {
             onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
           >
             <Image
-              src="/images/SG Logo V2.png"
-              alt="StoryGrid & Co."
-              height={32}
-              width={128}
+              src="/images/logo/logo.png"
+              alt="StoryGrid & Co"
+              width={1170}
+              height={540}
               priority
-              style={{ objectFit: 'contain', objectPosition: 'left center', mixBlendMode: 'screen' as React.CSSProperties['mixBlendMode'] }}
+              className="h-11 w-auto"
+              style={{ mixBlendMode: 'screen' as React.CSSProperties['mixBlendMode'] }}
             />
           </Link>
 

@@ -11,7 +11,6 @@ import Tag from '@/components/ui/Tag'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
-import { ProjectShowcase } from '@/components/ui/project-showcase'
 
 interface ServiceBlock {
   number: string
@@ -247,9 +246,6 @@ export default function WhatWeBuild() {
           })}
         </div>
 
-        <ScrollReveal delay={0.1}>
-          <ProjectShowcase />
-        </ScrollReveal>
       </div>
     </section>
   )

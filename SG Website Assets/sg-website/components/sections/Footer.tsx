@@ -37,11 +37,10 @@ function InstagramIcon() {
 }
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'How We Work', href: '#how-we-work' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: 'mailto:hello@storygrid.co' },
+  { label: 'Services', href: '/#services' },
+  { label: 'How We Work', href: '/#how-we-work' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'About', href: '/#about' },
 ]
 
 const socialLinks = [
@@ -101,11 +100,12 @@ export default function Footer() {
         {/* Left — Wordmark + tagline + email */}
         <div>
           <Image
-            src="/images/SG Logo V2.png"
-            alt="StoryGrid & Co."
-            height={28}
-            width={112}
-            style={{ objectFit: 'contain', objectPosition: 'left center', marginBottom: '6px', mixBlendMode: 'screen' as React.CSSProperties['mixBlendMode'] }}
+            src="/images/logo/logo.png"
+            alt="StoryGrid & Co"
+            width={1170}
+            height={540}
+            className="h-8 w-auto"
+            style={{ marginBottom: '6px', mixBlendMode: 'screen' as React.CSSProperties['mixBlendMode'] }}
           />
           <p
             style={{

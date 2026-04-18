@@ -366,7 +366,7 @@ export default function Hero() {
           </MagneticButton>
           <MagneticButton shouldReduceMotion={shouldReduceMotion ?? false}>
             <Button variant="ghost" size="lg" href={BOOKING_URL}>
-              Book a Strategy Call
+              Book a Call
             </Button>
           </MagneticButton>
         </motion.div>
