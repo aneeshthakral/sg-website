@@ -1,0 +1,29 @@
+---
+project_name: storygrid-website
+loglevel: info
+analyses:
+- analysis_name: sg-website analysis
+  source_directory: /Users/aneeshthakral/Downloads/Projects.md/StoryGrid & Co./SG Website Assets/sg-website
+  ignore_directories_containing:
+  - node_modules
+  - .next
+  - emerge-output
+  only_permit_languages:
+  - typescript
+  only_permit_file_extensions:
+  - .ts
+  - .tsx
+  file_scan:
+  - number_of_methods
+  - source_lines_of_code
+  - dependency_graph
+  - fan_in_out
+  - louvain_modularity
+  - tfidf
+  export:
+  - directory: /Users/aneeshthakral/Downloads/Projects.md/StoryGrid & Co./SG Website Assets/sg-website/emerge-output
+  - graphml
+  - json
+  - tabular_file
+  - tabular_console_overall
+  - d3
